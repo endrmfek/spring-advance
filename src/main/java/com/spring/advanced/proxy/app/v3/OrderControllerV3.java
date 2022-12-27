@@ -1,7 +1,6 @@
 package com.spring.advanced.proxy.app.v3;
 
 
-import com.spring.advanced.proxy.app.v2.OrderServiceV2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/proxy")
 public class OrderControllerV3 {
-    private OrderServiceV2 orderService;
+    private OrderServiceV3 orderService;
 
-    public OrderControllerV3(OrderServiceV2 orderService) {
+    public OrderControllerV3(OrderServiceV3 orderService) {
         this.orderService = orderService;
     }
 

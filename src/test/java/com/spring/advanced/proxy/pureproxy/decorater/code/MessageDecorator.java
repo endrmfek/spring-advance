@@ -1,0 +1,26 @@
+package com.spring.advanced.proxy.pureproxy.decorater.code;
+
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+
+@Slf4j
+public class MessageDecorator implements Component{
+
+    private Component component;
+
+    public MessageDecorator(Component component) {
+        this.component = component;
+    }
+
+
+    @Override
+    public String operation() {
+        log.info("MessageDecorator 실행");
+
+        // data -> *****data*****
+        String result = component.operation();
+        String decoResult = "*****" + result + "*****";
+        log.info("MessageDecorator 꾸미기 적용 전 = {}, 적용 후 = {}" , result, decoResult);
+        return decoResult;
+    }
+}
