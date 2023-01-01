@@ -1,6 +1,5 @@
 package com.spring.advanced.proxy.config;
 
-import com.spring.advanced.proxy.app.v1.*;
 import com.spring.advanced.proxy.app.v2.OrderControllerV2;
 import com.spring.advanced.proxy.app.v2.OrderRepositoryV2;
 import com.spring.advanced.proxy.app.v2.OrderServiceV2;

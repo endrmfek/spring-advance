@@ -20,8 +20,8 @@ public class ProxyFactoryConfigV2 {
 
 
     @Bean
-    public OrderControllerV2 orderController(LogTrace logTrace) {
-        OrderControllerV2 orderControllerV2 = new OrderControllerV2(orderService(logTrace));
+    public OrderControllerV2 orderControllerV2(LogTrace logTrace) {
+        OrderControllerV2 orderControllerV2 = new OrderControllerV2(orderServiceV2(logTrace));
         ProxyFactory factory = new ProxyFactory(orderControllerV2);
         factory.addAdvisor(getAdvisor(logTrace));
         OrderControllerV2 proxy = (OrderControllerV2) factory.getProxy();
@@ -31,8 +31,8 @@ public class ProxyFactoryConfigV2 {
 
 
     @Bean
-    public OrderServiceV2 orderService(LogTrace logTrace) {
-        OrderServiceV2 orderServiceV2 = new OrderServiceV2(orderRepository(logTrace));
+    public OrderServiceV2 orderServiceV2(LogTrace logTrace) {
+        OrderServiceV2 orderServiceV2 = new OrderServiceV2(orderRepositoryV2(logTrace));
         ProxyFactory factory = new ProxyFactory(orderServiceV2);
         factory.addAdvisor(getAdvisor(logTrace));
         OrderServiceV2 proxy = (OrderServiceV2) factory.getProxy();
@@ -41,7 +41,7 @@ public class ProxyFactoryConfigV2 {
     }
 
     @Bean
-    public OrderRepositoryV2 orderRepository(LogTrace logTrace) {
+    public OrderRepositoryV2 orderRepositoryV2(LogTrace logTrace) {
         OrderRepositoryV2 orderRepositoryV2 = new OrderRepositoryV2();
         ProxyFactory factory = new ProxyFactory(orderRepositoryV2);
         factory.addAdvisor(getAdvisor(logTrace));
@@ -58,4 +58,5 @@ public class ProxyFactoryConfigV2 {
         LogTraceAdvice advice = new LogTraceAdvice(logTrace);
         return new DefaultPointcutAdvisor(pointcut, advice);
     }
+
 }
