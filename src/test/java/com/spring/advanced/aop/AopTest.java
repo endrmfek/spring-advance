@@ -45,4 +45,6 @@ class AopTest { // scanBasePackage 잘 보고 사용할 것
         Assertions.assertThatThrownBy(() -> orderService.orderItem("ex"))
                 .isInstanceOf(IllegalStateException.class);
     }
+
+    //test
 }
